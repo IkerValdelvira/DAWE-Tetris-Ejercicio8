@@ -270,10 +270,10 @@ function L_Shape(center) {
                new Point(center.x, center.y),
                new Point(center.x + 1, center.y)];
     
-    Shape.prototype.init.call(false, coords, "cyan");
+    Shape.prototype.init.call(this, coords, "cyan");
 	
 	/* atributo introducido en el EJERCICIO 8 */
-	this.shift_rotation_dir = true;
+	this.shift_rotation_dir = false;
     this.center_block = this.blocks[2];
  
 }
