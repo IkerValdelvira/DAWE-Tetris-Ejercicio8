@@ -571,10 +571,20 @@ Tetris.prototype.key_pressed = function(e) {
 	else if(key == 39) console.log("Se ha pulsado 'Derecha'");
 	else if(key == 40) console.log("Se ha pulsado 'Abajo'");
 	*/
-	if(key == 37) this.do_move("Left");
-	else if(key == 39) this.do_move("Right");
-	else if(key == 40) this.do_move("Down");
+	if(key == 37){
+		e.preventDefault();
+		this.do_move("Left");
+	}
+	else if(key == 39){
+		e.preventDefault();
+		this.do_move("Right");
+	}
+	else if(key == 40){
+		e.preventDefault();
+		this.do_move("Down");
+	}
 	else if(key == 32){
+		e.preventDefault();
 		var can_move = true
 		while(can_move) {
 			var dx = Tetris.DIRECTION["Down"][0];
@@ -587,7 +597,10 @@ Tetris.prototype.key_pressed = function(e) {
 	}
 	
 	/* Introduce el código para realizar la rotación en el EJERCICIO 8. Es decir, al pulsar la flecha arriba, rotar la pieza actual */
-	else if(key == 38) this.do_rotate();
+	else if(key == 38){
+		e.preventDefault();
+		this.do_rotate();
+	}
 }
 
 Tetris.prototype.do_move = function(direction) {
@@ -633,6 +646,6 @@ Tetris.prototype.animate_shape = function(){
 
 Tetris.prototype.game_over = function(){
 	clearInterval(this.reloj);
-	if(!alert("GAME OVER!!!")){window.location.reload();}	// Al aceptar la alerta se reinicia el juego
+	alert("GAME OVER!!!");
 }
 
