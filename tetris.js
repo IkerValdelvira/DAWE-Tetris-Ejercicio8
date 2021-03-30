@@ -633,6 +633,6 @@ Tetris.prototype.animate_shape = function(){
 
 Tetris.prototype.game_over = function(){
 	clearInterval(this.reloj);
-	alert("GAME OVER!!!");
+	if(!alert("GAME OVER!!!")){window.location.reload();}	// Al aceptar la alerta se reinicia el juego
 }
 
